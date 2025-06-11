@@ -60,19 +60,19 @@ class Calculator {
         let expression = this.display.value.trim();
 
         if (expression === '') {
-            this.display.value = 'Error: Empty expression';
+            this.display.value = 'Error';
             return;
         }
 
         if (/[+\-*/]{2,}|[^0-9+\-*/.]/.test(expression)) {
-            this.display.value = 'Error: Invalid expression';
+            this.display.value = 'Error';
             return;
         }
 
         try {
             let result = Function('"use strict";return (' + expression + ')')();
             if (isNaN(result) || !isFinite(result)) {
-                this.display.value = 'Error: Invalid result';
+                this.display.value = 'Error';
             } else {
                 const historyEntry = `${expression} = ${result}`;
                 this.addToHistory(historyEntry);
@@ -80,7 +80,7 @@ class Calculator {
                 this.saveState();
             }
         } catch (error) {
-            this.display.value = 'Error: Syntax error';
+            this.display.value = 'Syntax error';
         }
     }
 
