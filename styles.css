@@ -22,3 +22,14 @@
     margin: 5px;
     cursor: pointer;
 }
+
+#history {
+    width: 100%;
+    height: 100px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+}
